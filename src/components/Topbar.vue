@@ -18,7 +18,7 @@ export default {
 
 <style scoped>
 .box {
-  background: deeppink;
+  background: var(--pink);
   /* padding: 1rem; */
   margin: 0 auto;
   position: fixed;

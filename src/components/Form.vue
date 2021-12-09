@@ -55,7 +55,7 @@ export default {
 
 <style scoped>
 .container {
-  background: rgba(144, 192, 60, 0.95);
+  background: var(--green);
   margin-top: 5rem;
   padding-bottom: 1.5rem;
   position: absolute;

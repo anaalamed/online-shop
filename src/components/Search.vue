@@ -45,7 +45,7 @@ input {
 }
 
 input:focus {
-  outline-color: rgba(144, 192, 60, 0.95);
+  outline-color: var(--green);
 }
 
 .submitBtn {

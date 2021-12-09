@@ -4,7 +4,7 @@
       <span @click="chooseCategory">
         {{ category }}
       </span>
-      <strong style="color: deeppink">&nbsp; |</strong>
+      <strong style="color: var(--pink)">&nbsp; |</strong>
     </div>
   </nav>
 </template>
@@ -40,9 +40,9 @@ export default {
   flex-direction: row-reverse;
   justify-content: center;
   align-items: center;
-  background: rgba(144, 192, 60, 0.95);
+  background: var(--green);
   color: white;
-  position: absolute;
+  position: relative;
   left: 0;
   right: 0;
   margin-top: 4rem;
@@ -57,7 +57,7 @@ export default {
 .category:hover,
 .category:focus {
   font-weight: bold;
-  color: deeppink;
+  color: var(--pink);
   transform: scale(1.1);
   transition: 1s;
 }

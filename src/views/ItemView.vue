@@ -75,7 +75,7 @@ export default {
 }
 
 .title {
-  color: deeppink;
+  color: var(--pink);
   font-weight: bold;
   font-size: 2rem;
   margin-bottom: 0;
@@ -124,7 +124,7 @@ export default {
 .choosen {
   width: 100px;
   transform: scale(1.2);
-  border: 1px solid rgba(144, 192, 60, 0.95);
+  border: 1px solid var(--green);
 }
 
 .price {

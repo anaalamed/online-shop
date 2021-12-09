@@ -32,7 +32,7 @@ export default {
 <style scoped>
 .item {
   border: 1px solid grey;
-  border-color: rgba(144, 192, 60, 0.95);
+  border-color: var(--green);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -40,7 +40,7 @@ export default {
 }
 
 .title {
-  color: deeppink;
+  color: var(--pink);
   font-weight: bold;
   font-size: 1.2rem;
   margin-bottom: 0;
