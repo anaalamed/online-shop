@@ -1,14 +1,11 @@
 <template>
-  <h1>menu</h1>
   <nav class="menu">
-    <p
-      v-for="category in categories"
-      :key="category"
-      class="category"
-      @click="chooseCategory"
-    >
-      {{ category }}
-    </p>
+    <div v-for="category in categories" :key="category" class="category">
+      <span @click="chooseCategory">
+        {{ category }}
+      </span>
+      <strong style="color: deeppink">&nbsp; |</strong>
+    </div>
   </nav>
 </template>
 
@@ -17,7 +14,7 @@ export default {
   computed: {
     categories() {
       let items = this.$store.state.items;
-      let categoriesArr = [];
+      let categoriesArr = ["הכל"];
 
       items.map((item) => {
         if (categoriesArr.includes(item.store_category_title) === false) {
@@ -30,7 +27,6 @@ export default {
   },
   methods: {
     chooseCategory(e) {
-      console.log(e.target.innerText);
       this.$store.dispatch("chooseCategory", { category: e.target.innerText });
     },
   },
@@ -41,12 +37,14 @@ export default {
 .menu {
   display: flex;
   flex-wrap: wrap;
+  flex-direction: row-reverse;
   justify-content: center;
   align-items: center;
+  background: rgba(144, 192, 60, 0.95);
+  color: white;
 }
 
 .category {
-  /* background: coral; */
   margin: 0.5rem;
   font-size: 1.5rem;
 }
@@ -54,7 +52,7 @@ export default {
 .category:hover,
 .category:focus {
   font-weight: bold;
-  color: navy;
+  color: deeppink;
   transform: scale(1.1);
   transition: 1s;
 }
