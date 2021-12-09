@@ -3,14 +3,19 @@ import { createStore } from "vuex";
 export default createStore({
   state: {
     items: [],
+    filteredItems: [],
     currentCategory: "הכל"
   },
   mutations: {
     FETCH_ITEMS(state, items) {
-      state.items = items
+      state.items = items;
+      state.filteredItems = items;
     },
     CHOOSE_CATEGORY(state, category) {
       state.currentCategory = category;
+    },
+    FILTER_ITEMS(state, filteredItems) {
+      state.filteredItems = filteredItems;
     }
   },
   actions: {
@@ -25,6 +30,9 @@ export default createStore({
 
     chooseCategory({commit}, payload) {
       commit("CHOOSE_CATEGORY", payload.category);
+    },
+    filterItems({commit}, payload) {
+      commit("FILTER_ITEMS", payload.filteredItems);
     }
   },
   modules: {},

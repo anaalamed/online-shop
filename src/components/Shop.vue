@@ -16,9 +16,9 @@ export default {
   computed: {
     items() {
       if (this.$store.state.currentCategory === "הכל")
-        return this.$store.state.items;
+        return this.$store.state.filteredItems;
       else
-        return this.$store.state.items.filter(
+        return this.$store.state.filteredItems.filter(
           (item) =>
             item.store_category_title === this.$store.state.currentCategory
         );
@@ -34,10 +34,11 @@ export default {
 <style scoped>
 .grid-items {
   /* min-height: 100%; */
-  margin-top: 40px;
+  position: absolute;
   display: grid;
   grid-gap: 10px;
   grid-template-columns: auto auto auto auto auto;
-  /* margin: 5px 0 0 0; */
+  margin: 0 15rem 0 15rem;
+  margin-top: 15rem;
 }
 </style>

@@ -42,15 +42,16 @@ export default {
   align-items: center;
   background: rgba(144, 192, 60, 0.95);
   color: white;
-  position: relative;
-  bottom: 0;
+  position: absolute;
   left: 0;
   right: 0;
+  margin-top: 4rem;
+  padding: 1rem;
 }
 
 .category {
   margin: 0.5rem;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
 .category:hover,
