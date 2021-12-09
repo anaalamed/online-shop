@@ -58,6 +58,10 @@ export default {
   background: rgba(144, 192, 60, 0.95);
   margin-top: 5rem;
   padding-bottom: 1.5rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 .envelope {

@@ -33,9 +33,11 @@ export default {
 
 <style scoped>
 .grid-items {
+  /* min-height: 100%; */
+  margin-top: 40px;
   display: grid;
   grid-gap: 10px;
-  grid-template-columns: auto auto auto;
-  margin: 5px 0 0 0;
+  grid-template-columns: auto auto auto auto auto;
+  /* margin: 5px 0 0 0; */
 }
 </style>

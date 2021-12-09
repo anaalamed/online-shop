@@ -42,6 +42,10 @@ export default {
   align-items: center;
   background: rgba(144, 192, 60, 0.95);
   color: white;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 .category {
