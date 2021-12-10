@@ -4,7 +4,7 @@
     <Categories />
     <Carousel />
     <Shop />
-    <!-- <Form /> -->
+    <FooterForm />
   </div>
 </template>
 
@@ -12,10 +12,9 @@
 // @ is an alias to /src
 import Topbar from "@/components/Topbar.vue";
 import Categories from "@/components/Categories.vue";
-// import Hero from "@/components/Hero.vue";
 import Carousel from "@/components/Carousel.vue";
 import Shop from "@/components/Shop.vue";
-// import Form from "@/components/Form.vue";
+import FooterForm from "@/components/FooterForm.vue";
 
 export default {
   name: "Home",
@@ -24,7 +23,7 @@ export default {
     Categories,
     Carousel,
     Shop,
-    // Form,
+    FooterForm,
   },
 };
 </script>

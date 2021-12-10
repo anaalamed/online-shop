@@ -113,6 +113,7 @@ img {
   img {
     height: 20vh;
     max-width: 130px;
+    margin-left: 150px;
   }
 
   .carousel {

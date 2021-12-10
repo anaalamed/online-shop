@@ -59,9 +59,11 @@ export default {
   margin-top: 4rem;
   padding-bottom: 1rem;
   position: absolute;
-  bottom: 0;
   left: 0;
   right: 0;
+  /* bottom: 0; */
+  background-size: cover;
+  width: 100%;
 }
 
 .envelope {
@@ -107,5 +109,23 @@ input,
   color: aliceblue;
   padding: 0.8rem 4rem;
   cursor: pointer;
+}
+
+@media (max-width: 812px) {
+  form {
+    flex-direction: column;
+  }
+
+  input,
+  .email,
+  .submit {
+    margin: 5px;
+    padding: 10px;
+    width: 80%;
+  }
+
+  .submit {
+    width: 85%;
+  }
 }
 </style>
