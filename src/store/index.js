@@ -4,7 +4,7 @@ export default createStore({
   state: {
     items: [],
     filteredItems: [],
-    currentCategory: "הכל"
+    currentCategory: "כל המוצרים"
   },
   mutations: {
     FETCH_ITEMS(state, items) {

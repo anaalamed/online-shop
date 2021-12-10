@@ -56,8 +56,8 @@ export default {
 <style scoped>
 .container {
   background: var(--green);
-  margin-top: 5rem;
-  padding-bottom: 1.5rem;
+  margin-top: 4rem;
+  padding-bottom: 1rem;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -73,7 +73,11 @@ export default {
   font-weight: bold;
   color: black;
   margin: 0;
-  margin: -38px 0 9px 0;
+  margin: -49px 0 5px 0;
+}
+
+p {
+  margin: 0;
 }
 
 form {

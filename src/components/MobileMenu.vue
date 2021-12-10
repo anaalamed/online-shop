@@ -4,17 +4,21 @@
       <span @click="chooseCategory">
         {{ category }}
       </span>
-      <strong style="color: var(--pink)">&nbsp; |</strong>
     </div>
   </nav>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      size: "(max-width: 812px)",
+    };
+  },
   computed: {
     categories() {
       let items = this.$store.state.items;
-      let categoriesArr = ["הכל"];
+      let categoriesArr = ["כל המוצרים"];
 
       items.map((item) => {
         if (categoriesArr.includes(item.store_category_title) === false) {
@@ -28,6 +32,7 @@ export default {
   methods: {
     chooseCategory(e) {
       this.$store.dispatch("chooseCategory", { category: e.target.innerText });
+      this.$emit("close");
     },
   },
 };
@@ -35,18 +40,23 @@ export default {
 
 <style scoped>
 .menu {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row-reverse;
-  justify-content: center;
-  align-items: center;
   background: var(--green);
   color: white;
-  position: relative;
+  position: absolute;
+  top: 0;
   left: 0;
   right: 0;
-  margin-top: 4rem;
   padding: 1rem;
+  margin-top: 5rem;
+
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: right;
+  align-items: flex-start;
+  direction: rtl;
+  height: 90vh;
+  z-index: 100;
 }
 
 .category {
@@ -60,5 +70,11 @@ export default {
   color: var(--pink);
   transform: scale(1.1);
   transition: 1s;
+}
+
+@media (min-width: 812px) {
+  .menu {
+    display: none;
+  }
 }
 </style>

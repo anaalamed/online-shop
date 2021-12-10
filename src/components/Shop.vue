@@ -1,13 +1,12 @@
 <template>
-  <div>
-    <div class="grid-items">
-      <Item v-for="item in items" :key="item.id" :item="item" />
-    </div>
+  <h1 class="title">{{ category }}</h1>
+  <div class="grid-items">
+    <Item v-for="item in items" :key="item.id" :item="item" />
   </div>
 </template>
 
 <script>
-import Item from "./Item.vue";
+import Item from "./ItemContainer.vue";
 
 export default {
   components: {
@@ -15,13 +14,16 @@ export default {
   },
   computed: {
     items() {
-      if (this.$store.state.currentCategory === "הכל")
+      if (this.$store.state.currentCategory === "כל המוצרים")
         return this.$store.state.filteredItems;
       else
         return this.$store.state.filteredItems.filter(
           (item) =>
             item.store_category_title === this.$store.state.currentCategory
         );
+    },
+    category() {
+      return this.$store.state.currentCategory;
     },
   },
 
@@ -32,13 +34,30 @@ export default {
 </script>
 
 <style scoped>
-.grid-items {
-  /* min-height: 100%; */
-  position: absolute;
-  display: grid;
-  grid-gap: 10px;
-  grid-template-columns: auto auto auto auto auto;
-  margin: 0 15rem 0 15rem;
+.title {
+  margin: 0;
   margin-top: 6rem;
+  /* color: var(--green); */
+  font-size: 2.5rem;
+  /* text-decoration: underline; */
+}
+.grid-items {
+  padding: 1rem 10rem 4rem 10rem;
+
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+}
+
+@media (max-width: 812px) {
+  .grid-items {
+    padding: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+
+  .title {
+    margin-top: 2rem;
+    font-size: 2rem;
+  }
 }
 </style>

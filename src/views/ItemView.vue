@@ -33,12 +33,12 @@
       <span class="price">₪ {{ item.price }}</span>
     </span>
 
-    <Form />
+    <FotterForm />
   </div>
 </template>
 
 <script>
-import Form from "@/components/Form.vue";
+import FotterForm from "@/components/FotterForm.vue";
 
 export default {
   data() {
@@ -59,7 +59,7 @@ export default {
     },
   },
   components: {
-    Form,
+    FotterForm,
   },
 };
 </script>
@@ -99,7 +99,7 @@ export default {
   /* width: 80%; */
   /* height: 80%; */
   max-width: 90%;
-  max-height: 70vh;
+  max-height: 55vh;
 }
 
 .icons {

@@ -6,8 +6,6 @@
       </div>
     </div>
   </div>
-  <button @click="prev">prev</button>
-  <button @click="next">next</button>
 </template>
 
 <script>
@@ -48,7 +46,6 @@ export default {
       if (this.transitioning) return;
 
       this.transitioning = true;
-
       this.moveLeft();
 
       this.afterTransition(() => {
@@ -59,31 +56,9 @@ export default {
       });
     },
 
-    prev() {
-      if (this.transitioning) return;
-
-      this.transitioning = true;
-
-      this.moveRight();
-
-      this.afterTransition(() => {
-        const card = this.cards.pop();
-        this.cards.unshift(card);
-        this.resetTranslate();
-        this.transitioning = false;
-      });
-    },
-
     moveLeft() {
       this.innerStyles = {
         transform: `translateX(-${this.step})
-                    translateX(-${this.step})`,
-      };
-    },
-
-    moveRight() {
-      this.innerStyles = {
-        transform: `translateX(${this.step})
                     translateX(-${this.step})`,
       };
     },
@@ -109,8 +84,9 @@ export default {
 <style scoped>
 .carousel {
   /* width: 170px; */
-  /* width: 80%; */
-  margin-top: 5rem;
+  width: 100%;
+  position: relative;
+  margin-top: 18rem;
   overflow: hidden;
 }
 
@@ -121,7 +97,7 @@ export default {
 
 .card {
   width: 30%;
-  margin-right: 10px;
+  margin: 10px;
   display: inline-flex;
 
   align-items: center;
@@ -129,13 +105,18 @@ export default {
 }
 
 img {
-  height: 40vh;
+  height: 30vh;
   max-width: 350px;
 }
 
-/* optional */
-button {
-  margin-right: 5px;
-  margin-top: 10px;
+@media (max-width: 812px) {
+  img {
+    height: 20vh;
+    max-width: 130px;
+  }
+
+  .carousel {
+    margin-top: 8rem;
+  }
 }
 </style>

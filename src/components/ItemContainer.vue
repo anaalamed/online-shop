@@ -5,13 +5,13 @@
     <img :src="item.images[0]?.url" :alt="item.title" class="image" />
 
     <div class="prices">
-      <p class="price">₪ {{ item.price }}</p>
       <p
         v-if="item.origin_price"
         style="margin: 0; text-decoration: line-through"
       >
         ₪ {{ item.origin_price }}
       </p>
+      <p class="price">₪ {{ item.price }}</p>
     </div>
   </div>
 </template>
@@ -37,6 +37,19 @@ export default {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 50px;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 10px;
+}
+
+.item:hover {
+  background: rgb(209, 248, 145);
+  transform: scale(1.1);
+  transition: 1s;
+  cursor: pointer;
+  border-width: 3px;
 }
 
 .title {
@@ -49,7 +62,12 @@ export default {
 .image {
   max-width: 80%;
   max-height: 200px;
-  /* justify-self: center; */
+  mix-blend-mode: multiply;
+}
+
+.image:hover {
+  transform: scale(1.2);
+  transition: 1s;
 }
 
 .price {
