@@ -104,6 +104,10 @@ input,
   width: 20%;
 }
 
+input:focus {
+  outline-color: var(--pink);
+}
+
 .submit {
   background: #d6006e;
   color: aliceblue;

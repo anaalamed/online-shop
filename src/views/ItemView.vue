@@ -18,7 +18,7 @@
             :key="image.id"
             :src="image.url"
             :alt="item.title"
-            class="icon"
+            :class="[{ choosen: image.url === currentImg }, 'icon']"
           />
         </div>
       </div>
@@ -62,12 +62,14 @@ export default {
   components: {
     FooterForm,
   },
+  mounted() {
+    this.currentImg = this.item.images[0].url;
+  },
 };
 </script>
 
 <style scoped>
 .box {
-  /* min-height: 100vh; */
   width: 100%;
   height: 100%;
   display: flex;
@@ -79,7 +81,7 @@ export default {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  min-height: 70vh;
+  min-height: 75vh;
 }
 
 .title {
@@ -100,6 +102,11 @@ export default {
   max-height: 60vh;
 }
 
+.currentImage:hover {
+  transform: scale(1.1);
+  transition: 1s;
+}
+
 .icons {
   max-height: 60vh;
   display: flex;
@@ -112,17 +119,21 @@ export default {
   max-width: 60px;
   max-height: 100px;
   margin: 10px;
+  border: 1px solid var(--green);
+
+  border-radius: 0.5rem;
 }
 
 .icon:hover {
   width: 100px;
   transform: scale(1.2);
+  transition: 1s;
 }
 
 .choosen {
   width: 100px;
   transform: scale(1.2);
-  border: 1px solid var(--green);
+  border-color: var(--pink);
 }
 
 .price {

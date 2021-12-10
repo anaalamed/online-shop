@@ -1,6 +1,10 @@
 <template>
   <nav class="menu">
-    <div v-for="category in categories" :key="category" class="category">
+    <div
+      v-for="category in categories"
+      :key="category"
+      :class="['category', { choosen: category === this.currentCategory }]"
+    >
       <span @click="chooseCategory">
         {{ category }}
       </span>
@@ -28,6 +32,9 @@ export default {
       });
 
       return categoriesArr;
+    },
+    currentCategory() {
+      return this.$store.state.currentCategory;
     },
   },
   methods: {
@@ -61,11 +68,17 @@ export default {
 }
 
 .category:hover,
-.category:focus {
+.choosen {
   font-weight: bold;
-  color: var(--pink);
+  color: var(--grey);
   transform: scale(1.1);
   transition: 1s;
+  cursor: pointer;
+}
+
+.choosen {
+  font-weight: bold;
+  color: var(--pink);
 }
 
 @media (max-width: 812px) {

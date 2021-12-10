@@ -1,10 +1,6 @@
 <template>
   <div class="boxSearch">
-    <img
-      class="submitBtn"
-      @click="handleSubmit"
-      src="https://img.icons8.com/ios/30/000000/search--v1.png"
-    />
+    <i class="fas fa-search submitBtn" @click="toggleMenu"></i>
 
     <input placeholder="חפש פריט..." v-model="search" @input="handleSubmit" />
   </div>
@@ -47,16 +43,27 @@ input {
   font-size: 1rem;
   border: none;
   width: 70%;
+  color: var(--green);
+  letter-spacing: 1.5px;
 }
 
 input:focus {
   outline-color: var(--green);
 }
 
+input::placeholder {
+  color: var(--grey);
+}
+
+.fa-search {
+  font-size: 1.7rem;
+  color: var(--green);
+}
+
 .submitBtn {
   position: relative;
-  top: 11px;
-  right: -45px;
+  top: 6px;
+  right: -38px;
 }
 
 .submitBtn:hover {
