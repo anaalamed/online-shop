@@ -1,6 +1,6 @@
 <template>
-  <nav class="menu">
-    <div
+  <ul class="menu">
+    <li
       v-for="category in categories"
       :key="category"
       :class="['category', { choosen: category === this.currentCategory }]"
@@ -8,9 +8,9 @@
       <span @click="chooseCategory">
         {{ category }}
       </span>
-      <strong style="color: var(--pink)">&nbsp; |</strong>
-    </div>
-  </nav>
+      <!-- <strong class="separator" style="color: var(--pink)">&nbsp; |</strong> -->
+    </li>
+  </ul>
 </template>
 
 <script>
@@ -60,6 +60,16 @@ export default {
   right: 0;
   margin-top: 4rem;
   padding: 1rem 5rem 1rem 5rem;
+  list-style: none;
+}
+
+li::before {
+  display: inline-block;
+  content: "|";
+  position: relative;
+  left: -0.5rem;
+  font-weight: bold;
+  color: var(--pink);
 }
 
 .category {
@@ -67,8 +77,7 @@ export default {
   font-size: 1.2rem;
 }
 
-.category:hover,
-.choosen {
+.category:hover {
   font-weight: bold;
   color: var(--grey);
   transform: scale(1.1);

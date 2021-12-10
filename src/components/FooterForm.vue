@@ -8,9 +8,9 @@
     <p>ותהנה מהמוצרים החדשניים שלנו במחירים נוחים</p>
 
     <form
+      @submit="handleSubmit"
       action="https://webhook.site/808ee5e5-c042-4f11-8077-2cbaded49fc7"
       method="post"
-      @submit="handleSubmit"
     >
       <input required type="name" name="name" placeholder="שם" v-model="name" />
       <input
@@ -47,7 +47,33 @@ export default {
     handleSubmit() {
       // e.preventDefault();
       console.log(this.email, this.name, this.phone);
+
+      // const asyncPostCall = async () => {
+      //   try {
+      //     const response = await fetch(
+      //       "https://webhook.site/808ee5e5-c042-4f11-8077-2cbaded49fc7",
+      //       {
+      //         method: "POST",
+      //         headers: {
+      //           "Content-Type": "application/json",
+      //         },
+      //         body: JSON.stringify({
+      //           name: this.name,
+      //           email: this.email,
+      //           mobile: this.mobile,
+      //         }),
+      //       }
+      //     );
+      //     const data = await response.json();
+      //     console.log(data);
+      //   } catch (error) {
+      //     console.log(error);
+      //   }
+      // };
+
+      // asyncPostCall();
     },
+    // https://webhook.site/808ee5e5-c042-4f11-8077-2cbaded49fc7
   },
 };
 </script>
