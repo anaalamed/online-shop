@@ -157,13 +157,13 @@ input:focus {
 
   input,
   .email,
-  .submit {
+  .submitBtn {
     margin: 5px;
     padding: 10px;
     width: 80%;
   }
 
-  .submit {
+  .submitBtn {
     width: 85%;
   }
 }
