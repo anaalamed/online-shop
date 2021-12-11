@@ -1,5 +1,7 @@
 :root {
-    --green: rgba(144, 192, 60, 0.95);
-    --pink: deeppink;
-    --grey: #2c3e50;
+    --main: rgba(144, 192, 60, 0.95);
+    --secondary: deeppink;
+    --text: #2c3e50;
 }
+
+*{scroll-behavior: smooth;}

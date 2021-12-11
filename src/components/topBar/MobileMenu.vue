@@ -40,7 +40,7 @@ export default {
 
 <style scoped>
 .menu {
-  background: var(--green);
+  background: var(--main);
   color: white;
   position: absolute;
   top: 0;
@@ -67,7 +67,7 @@ export default {
 .category:hover,
 .category:focus {
   font-weight: bold;
-  color: var(--pink);
+  color: var(--secondary);
   transform: scale(1.1);
   transition: 1s;
 }

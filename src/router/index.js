@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Home from "../views/Home.vue";
+import Home from "../views/HomeView.vue";
 import ItemView from "../views/ItemView.vue";
 
 const routes = [
@@ -17,7 +17,7 @@ const routes = [
 
 const router = createRouter({
   history: createWebHistory(),
-  routes,
+  routes
 });
 
 export default router;

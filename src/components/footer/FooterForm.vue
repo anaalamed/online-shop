@@ -7,15 +7,11 @@
     <h1 class="title">צור קשר עוד היום</h1>
     <p>ותהנה מהמוצרים החדשניים שלנו במחירים נוחים</p>
 
-    <form
-      @submit="handleSubmit"
-      action="https://webhook.site/808ee5e5-c042-4f11-8077-2cbaded49fc7"
-      method="post"
-    >
+    <form @submit="handleSubmit" method="post">
       <input required type="name" name="name" placeholder="שם" v-model="name" />
       <input
         required
-        type="phone"
+        type="tel"
         name="phone"
         placeholder="טלפון"
         v-model="phone"
@@ -28,52 +24,65 @@
         v-model="email"
         class="email"
       />
-      <input type="submit" value="הרשם" class="submit" />
+      <input type="submit" value="הרשם" class="submitBtn" />
     </form>
+
+    <div v-if="isShowModal">
+      <Modal
+        header="Thank You"
+        text="Your details were send ☺️"
+        @close="toggleModal"
+      ></Modal>
+    </div>
   </div>
 </template>
 
 
 <script>
+import Modal from "./Modal.vue";
 export default {
   data() {
     return {
       email: "",
       name: "",
       phone: "",
+      isShowModal: false,
     };
   },
   methods: {
-    handleSubmit() {
-      // e.preventDefault();
-      console.log(this.email, this.name, this.phone);
+    handleSubmit(e) {
+      e.preventDefault();
 
-      // const asyncPostCall = async () => {
-      //   try {
-      //     const response = await fetch(
-      //       "https://webhook.site/808ee5e5-c042-4f11-8077-2cbaded49fc7",
-      //       {
-      //         method: "POST",
-      //         headers: {
-      //           "Content-Type": "application/json",
-      //         },
-      //         body: JSON.stringify({
-      //           name: this.name,
-      //           email: this.email,
-      //           mobile: this.mobile,
-      //         }),
-      //       }
-      //     );
-      //     const data = await response.json();
-      //     console.log(data);
-      //   } catch (error) {
-      //     console.log(error);
-      //   }
-      // };
-
-      // asyncPostCall();
+      const asyncPostCall = async () => {
+        try {
+          const response = await fetch(
+            "https://webhook.site/808ee5e5-c042-4f11-8077-2cbaded49fc7",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                name: this.name,
+                email: this.email,
+                mobile: this.phone,
+              }),
+            }
+          );
+          const status = await response.status;
+          if (status === 200) this.isShowModal = true;
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      asyncPostCall();
     },
-    // https://webhook.site/808ee5e5-c042-4f11-8077-2cbaded49fc7
+    toggleModal() {
+      this.isShowModal = !this.isShowModal;
+    },
+  },
+  components: {
+    Modal,
   },
 };
 </script>
@@ -81,13 +90,13 @@ export default {
 
 <style scoped>
 .container {
-  background: var(--green);
+  grid-area: footer;
+  background: var(--main);
   margin-top: 4rem;
   padding-bottom: 1rem;
   position: absolute;
   left: 0;
   right: 0;
-  /* bottom: 0; */
   background-size: cover;
   width: 100%;
 }
@@ -116,7 +125,7 @@ form {
 }
 
 input,
-.submit {
+.submitBtn {
   margin: 1rem;
   border-radius: 0.5rem;
   direction: rtl;
@@ -131,14 +140,14 @@ input,
 }
 
 input:focus {
-  outline-color: var(--pink);
+  outline-color: var(--secondary);
 }
 
-.submit {
+.submitBtn {
   background: #d6006e;
   color: aliceblue;
-  padding: 0.8rem 4rem;
   cursor: pointer;
+  font-weight: bold;
 }
 
 @media (max-width: 812px) {

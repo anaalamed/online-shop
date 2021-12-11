@@ -43,21 +43,21 @@ input {
   font-size: 1rem;
   border: none;
   width: 70%;
-  color: var(--green);
+  color: var(--gremainen);
   letter-spacing: 1.5px;
 }
 
 input:focus {
-  outline-color: var(--green);
+  outline-color: var(--main);
 }
 
 input::placeholder {
-  color: var(--grey);
+  color: var(--text);
 }
 
 .fa-search {
   font-size: 1.7rem;
-  color: var(--green);
+  color: var(--main);
 }
 
 .submitBtn {

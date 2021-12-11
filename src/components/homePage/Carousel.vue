@@ -83,7 +83,7 @@ export default {
 
 <style scoped>
 .carousel {
-  /* width: 170px; */
+  grid-area: carousel;
   width: 100%;
   position: relative;
   margin-top: 18rem;
@@ -105,13 +105,13 @@ export default {
 }
 
 img {
-  height: 30vh;
+  height: 20vh;
   max-width: 350px;
 }
 
 @media (max-width: 812px) {
   img {
-    height: 20vh;
+    height: 15vh;
     max-width: 130px;
     margin-left: 150px;
   }

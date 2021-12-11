@@ -4,11 +4,11 @@
       v-for="category in categories"
       :key="category"
       :class="['category', { choosen: category === this.currentCategory }]"
+      class="category"
     >
       <span @click="chooseCategory">
         {{ category }}
       </span>
-      <!-- <strong class="separator" style="color: var(--pink)">&nbsp; |</strong> -->
     </li>
   </ul>
 </template>
@@ -47,13 +47,13 @@ export default {
 
 <style scoped>
 .menu {
+  grid-area: categories;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row-reverse;
   justify-content: center;
   align-items: center;
-  background: var(--green);
-  color: white;
+  background: var(--main);
   position: absolute;
   top: 0;
   left: 0;
@@ -61,6 +61,7 @@ export default {
   margin-top: 4rem;
   padding: 1rem 5rem 1rem 5rem;
   list-style: none;
+  color: white;
 }
 
 li::before {
@@ -69,7 +70,7 @@ li::before {
   position: relative;
   left: -0.5rem;
   font-weight: bold;
-  color: var(--pink);
+  color: var(--secondary);
 }
 
 .category {
@@ -79,7 +80,7 @@ li::before {
 
 .category:hover {
   font-weight: bold;
-  color: var(--grey);
+  color: var(--text);
   transform: scale(1.1);
   transition: 1s;
   cursor: pointer;
@@ -87,7 +88,7 @@ li::before {
 
 .choosen {
   font-weight: bold;
-  color: var(--pink);
+  color: var(--secondary);
 }
 
 @media (max-width: 812px) {

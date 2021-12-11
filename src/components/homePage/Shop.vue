@@ -1,7 +1,9 @@
 <template>
-  <h1 class="title">{{ category }}</h1>
-  <div class="grid-items">
-    <Item v-for="item in items" :key="item.id" :item="item" />
+  <div id="shop">
+    <h1 class="title">{{ category }}</h1>
+    <div class="grid-items">
+      <Item v-for="item in items" :key="item.id" :item="item" />
+    </div>
   </div>
 </template>
 
@@ -34,12 +36,13 @@ export default {
 </script>
 
 <style scoped>
+#shop {
+  grid-area: shop;
+}
 .title {
   margin: 0;
   margin-top: 6rem;
-  /* color: var(--green); */
   font-size: 2.5rem;
-  /* text-decoration: underline; */
 }
 .grid-items {
   padding: 1rem 10rem 4rem 10rem;
